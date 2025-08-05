@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Marcio Dias Duarte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --light-gray: #f4f4f4;
+            --dark-gray: #333;
+            --text-color: #555;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: var(--white);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+        }
+
+        /* --- Barra Lateral --- */
+        .sidebar {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+			width: 298px;
+        }
+
+        .profile-pic {
+            width: 190px;
+            height: 190px;
+            border-radius: 18%;
+            border: 2px solid var(--white);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .sidebar h3 {
+            color: var(--white);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 1.1em;
+        }
+
+        .contact-info ul, .skills-list, .languages-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .contact-info li {
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+        
+       .contact-info li i {
+    /* Define um tamanho fixo para o container do ícone, para que todos fiquem alinhados */
+    width: 20px;
+
+    /* A forma correta de definir o tamanho do ícone */
+    font-size: 18px; 
+
+    /* Mantém o ícone na mesma linha que o texto */
+    display: inline-block;
+
+    /* Centraliza o ícone dentro do seu container de 20px */
+    text-align: center;
+
+    /* Melhora o alinhamento vertical com o texto ao lado */
+    vertical-align: middle; 
+    
+    /* Espaçamento à direita */
+    margin-right: 10px;
+
+    /* Cor do ícone */
+    color: var(--secondary-color);
+}
+        
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .skills-list li {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            display: inline-block;
+            font-size: 0.9em;
+        }
+
+        .languages-list li {
+            margin-bottom: 5px;
+        }
+        
+        .languages-list span {
+            font-weight: 300;
+            color: #bdc3c7;
+        }
+
+        /* --- Conteúdo Principal --- */
+        .main-content {
+            padding: 40px;
+        }
+
+        .main-header h1 {
+            color: var(--dark-gray);
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        .main-header h2 {
+            color: var(--secondary-color);
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.4em;
+        }
+        
+        .job {
+            margin-bottom: 25px;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        
+        .job-company {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .job-date {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .job ul, .education-item ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .job ul li, .education-item ul li {
+            margin-bottom: 8px;
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-degree {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .education-institution {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .education-date {            
+			font-size: 0.9em;
+            font-style: italic;
+            color: #cdcdcd;
+        }
+		
+		.map-pic {
+            width: 16px;
+            height:16px;
+			margin-right: 10px;
+        }
+		
+		.mobile-pic {
+            width: 12px;
+            height:17px;
+			margin-right: 10px;			
+        }
+		
+		.gmail-pic {
+            width: 18px;
+            height:12px;
+			margin-right: 10px;
+        }
+		
+		.linkedin-pic {
+            width: 16px;
+            height:16px;
+			margin-right: 10px;
+        }
+
+
+        /* --- Responsividade --- */
+        @media (max-width: 800px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 0;
+            }
+            .sidebar, .main-content {
+                padding: 25px;
+            }
+            .main-header h1 {
+                font-size: 2.2em;
+            }
+            .main-header h2 {
+                font-size: 1.3em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <img src="img/profile.jpeg" alt="Foto de Marcio Dias Duarte" class="profile-pic">
+            
+            <div class="contact-info">
+                <h3>Contato</h3>
+                <ul>
+                    <li><i class="fa fa-map"></i></i>Curitiba, Paraná, Brasil </li>
+                    <li><i class="fa fa-phone"></i></i>(41) 99896-5408</li>
+                    <li><i class="fa fa-envelope"></i><a href="mailto:marciodiasduarte@gmail.com">marciodiasduarte@gmail.com</a></li>
+                    <li><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/marcio-dias-duarte" target="_blank">LinkedIn</a>
+					</li>
+                </ul>
+            </div>
+
+            <div class="skills">
+                <h3>Principais Competências</h3>
+                <ul class="skills-list">
+                    <li>Microsserviços </li>
+                    <li>Metodologias Agile</li>
+                    <li>Oracle</li>
+                    <li>Java</li>
+                    <li>Spring Boot</li>
+                    <li>JSF</li>
+                    <li>Hibernate</li>
+                    <li>React.js</li>
+                    <li>PHP</li>
+                    <li>SQL</li>
+                </ul>
+            </div>
+            
+            <div class="education">
+                <h3 class="section-title">Formação</h3>
+                <div class="education-item">
+                    <p class="education-degree">Especialização em Engenharia de Software </p>
+                    <p class="education-institution">Pontifícia Universidade Católica do Paraná </p>
+                    <p class="education-date">2014 - 2016 </p>
+                </div>
+                <div class="education-item">
+                    <p class="education-degree">Sistemas de Informação </p>
+                    <p class="education-institution">Faculdade Spei ]</p>
+                    <p class="education-date">2008 - 2011 </p>
+                </div>
+            </div>
+
+            <div class="languages">
+                <h3>Idiomas</h3>
+                <ul class="languages-list">
+                    <li>Português <span>(Nativo ou Bilíngue)</span> </li>
+                    <li>Inglês <span>(Profissional Limitado)</span> </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Marcio Dias Duarte </h1>
+                <h2>Analista de Sistemas Sênior<br> com experiência em Java, JSF, e Oracle. </h2>
+            </header>
+
+            <section class="section">
+                <h2 class="section-title">Resumo Profissional</h2>
+                <p>Com mais de uma década de experiência, sou especializado em desenvolver soluções tecnológicas robustas e escaláveis, atuando como Analista de Sistemas Sênior na Dataprom. No meu papel atual, auxílio nas fases de análise, planejamento e implementação em projetos de gerenciamento de tráfego, aprimorando a padronização visual e a eficiência dos sistemas. Nossa equipe utiliza metodologias ágeis para entregar software de alta qualidade, com um foco consistente em Java e Spring Boot. Sou apaixonado por resolver desafios complexos e trazer inovações que maximizam o desempenho e a funcionalidade. </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experiência Profissional</h2>
+
+                <article class="job">
+                    <h3 class="job-title">Analista de Sistemas Sênior - <span class="job-company">Dataprom</span></h3>
+                    <p class="job-date">fevereiro de 2021 - Presente (4 anos 7 meses) | Curitiba, Paraná, Brasil </p>
+                    <ul>
+                        <li>Foco em Java no backend e JSP no frontend para desenvolver e manter o sistema de gerenciamento de manutenção de semáforos. </li>
+                        <li>Responsável por todas as etapas do ciclo de desenvolvimento: análise, planejamento, implantação e testes. </li>
+                        <li>Apoio no levantamento de requisitos e elaboração de propostas técnicas. </li>
+                        <li>Contribuição na padronização visual do sistema e gerenciamento do processo de build com Maven. </li>
+                        <li>Tecnologias: JavaScript, JQuery, Hibernate, Vraptor, Bootstrap, GIT e Oracle DB. ]</li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <h3 class="job-title">Analista de Sistemas Sênior - <span class="job-company">OTG Open Technologies Group</span> </h3>
+                    <p class="job-date">fevereiro de 2020 - fevereiro de 2021 (1 ano 1 mês) | Curitiba e Região, Brasil </p>
+                     <ul>
+                        <li>Alocado na Telefônica/Vivo, desenvolvendo e mantendo módulos para a equipe de engenharia da URA (backend em Java, frontend em JSF). </li>
+                        <li>Responsável pela análise, correção de erros, implementação de melhorias e gerenciamento de build via Maven.</li>
+                        <li>Atuação em todas as etapas de desenvolvimento, implantação e testes, além de auxílio no levantamento de requisitos. </li>
+                        <li>Tecnologias: Java, JavaScript, Ajax, JSF, Spring, Weblogic, Oracle e Git. </li>
+                    </ul>
+                </article>
+
+                <article class="job">
+                    <h3 class="job-title">Analista de Sistemas Sênior - <span class="job-company">Condor Super Center Ltda.</span> </h3>
+                    <p class="job-date">maio de 2015 - janeiro de 2020 (4 anos 9 meses) | Curitiba, Paraná </p>
+                    <ul>
+                        <li>Desenvolvimento de sistemas ERP com Java no backend e JSF no frontend. </li>
+                        <li>Participação na migração de JSF para React e no desenvolvimento de soluções modularizadas. </li>
+                        <li>Liderança em projetos como sistema de roteirização de entregas, portais de fornecedores (PHP/Laravel) e de estatísticas de vendas (Jasper). </li>
+                        <li>Tecnologias: PHP, React.js, Java, Spring, Hibernate, JBoss, Oracle, MySQL, PostgreSQL, ElasticSearch. </li>
+                    </ul>
+                </article>
+                
+                <article class="job">
+                    <h3 class="job-title">Programador de Sistemas Pleno - <span class="job-company">Clube Candeias</span> </h3>
+                    <p class="job-date">fevereiro de 2011 - abril de 2015 (4 anos 3 meses)</p>
+                     <ul>
+                        <li>Início como estagiário, com promoções para Programador Júnior e, depois, Pleno. </li>
+                        <li>Atuação com PHP no backend e participação na migração de PHP para Java. </li>
+                        <li>Trabalho em todas as fases do desenvolvimento, manutenção evolutiva, correção de erros e implementação de projetos. </li>
+                        <li>Tecnologias: PHP, JavaScript, Java, HTML, Ajax, JSF, Hibernate, JQuery, CVS, MySQL, PostgreSQL, SQL Server. </li>
+                    </ul>
+                </article>
+
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
