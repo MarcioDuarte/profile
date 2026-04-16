@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo - Marcio Dias Duarte</title>
+    <title>Marcio Dias Duarte — Analista de Sistemas Sênior</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.css">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --light-gray: #f4f4f4;
-            --dark-gray: #333;
-            --text-color: #555;
-            --white: #ffffff;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #0f0f0f;
+            --card-bg: #252525;
+            --accent: #0066cc;
+            --accent-light: #00a8e8;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-light: #808080;
+            --border: #333333;
         }
 
         * {
@@ -24,355 +27,642 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--light-gray);
-            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            color: var(--text-primary);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: var(--white);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        /* --- Layout Principal --- */
+        .wrapper {
             display: grid;
-            grid-template-columns: 1fr 2.5fr;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
         }
 
-        /* --- Barra Lateral --- */
+        /* --- Sidebar --- */
         .sidebar {
-            background: var(--primary-color);
-            color: var(--white);
+            background: var(--card-bg);
             padding: 40px 30px;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* --- Profile Section --- */
+        .profile-section {
             text-align: center;
-			width: 298px;
         }
 
         .profile-pic {
-            width: 190px;
-            height: 190px;
-            border-radius: 18%;
-            border: 2px solid var(--white);
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
             object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 102, 204, 0.3);
+        }
+
+        .profile-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .profile-title {
+            font-size: 0.9em;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Contact Info --- */
+        .contact-section h3 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.85em;
+        }
+
+        .contact-list i {
+            color: var(--accent);
+            margin-top: 2px;
+            flex-shrink: 0;
+            width: 16px;
+            text-align: center;
+        }
+
+        .contact-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-list a:hover {
+            color: var(--accent);
+        }
+
+        /* --- Skills Section --- */
+        .skills-section h3,
+        .languages-section h3 {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 102, 204, 0.15);
+            color: var(--accent-light);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: 600;
+            border: 1px solid rgba(0, 102, 204, 0.3);
+        }
+
+        .languages-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+        }
+
+        .language-name {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .language-level {
+            color: var(--text-light);
+            font-size: 0.8em;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            padding: 60px 50px;
+            overflow-y: auto;
+        }
+
+        /* --- Header --- */
+        .header {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: var(--accent);
+            font-weight: 600;
             margin-bottom: 20px;
         }
 
-        .sidebar h3 {
-            color: var(--white);
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            font-size: 1.1em;
+        .header p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 800px;
         }
 
-        .contact-info ul, .skills-list, .languages-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-
-        .contact-info li {
-            margin-bottom: 10px;
-            word-wrap: break-word;
-        }
-        
-       .contact-info li i {
-    /* Define um tamanho fixo para o container do ícone, para que todos fiquem alinhados */
-    width: 20px;
-
-    /* A forma correta de definir o tamanho do ícone */
-    font-size: 18px; 
-
-    /* Mantém o ícone na mesma linha que o texto */
-    display: inline-block;
-
-    /* Centraliza o ícone dentro do seu container de 20px */
-    text-align: center;
-
-    /* Melhora o alinhamento vertical com o texto ao lado */
-    vertical-align: middle; 
-    
-    /* Espaçamento à direita */
-    margin-right: 10px;
-
-    /* Cor do ícone */
-    color: var(--secondary-color);
-}
-        
-        .contact-info a {
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        .skills-list li {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 5px 10px;
-            border-radius: 5px;
-            margin-bottom: 8px;
-            display: inline-block;
-            font-size: 0.9em;
-        }
-
-        .languages-list li {
-            margin-bottom: 5px;
-        }
-        
-        .languages-list span {
-            font-weight: 300;
-            color: #bdc3c7;
-        }
-
-        /* --- Conteúdo Principal --- */
-        .main-content {
-            padding: 40px;
-        }
-
-        .main-header h1 {
-            color: var(--dark-gray);
-            font-size: 2.8em;
-            font-weight: 700;
-            margin-bottom: 0;
-        }
-
-        .main-header h2 {
-            color: var(--secondary-color);
-            font-size: 1.5em;
-            font-weight: 400;
-            margin-bottom: 30px;
-        }
-
+        /* --- Section --- */
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .section-title {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font-size: 1.4em;
-        }
-        
-        .job {
-            margin-bottom: 25px;
-        }
-
-        .job-title {
-            font-size: 1.2em;
+            font-size: 1.5em;
             font-weight: 700;
-            color: var(--dark-gray);
-        }
-        
-        .job-company {
-            font-weight: 700;
-            color: var(--secondary-color);
-        }
-
-        .job-date {
-            font-size: 0.9em;
-            font-style: italic;
-            color: #7f8c8d;
-            margin-bottom: 10px;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
         }
 
-        .job ul, .education-item ul {
-            list-style-type: disc;
-            padding-left: 20px;
+        /* --- Experience --- */
+        .experience-item {
+            margin-bottom: 35px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .job ul li, .education-item ul li {
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 8px;
+            gap: 20px;
         }
-        
+
+        .experience-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .experience-company {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .experience-date {
+            font-size: 0.85em;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .experience-location {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .experience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 168, 232, 0.1);
+            color: var(--accent-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: 600;
+            border: 1px solid rgba(0, 168, 232, 0.2);
+        }
+
+        /* --- Education --- */
         .education-item {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .education-degree {
-            font-size: 1.1em;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--text-primary);
+            font-size: 0.95em;
         }
 
         .education-institution {
-            font-weight: 700;
-            color: var(--secondary-color);
-        }
-        
-        .education-date {            
-			font-size: 0.9em;
-            font-style: italic;
-            color: #cdcdcd;
-        }
-		
-		.map-pic {
-            width: 16px;
-            height:16px;
-			margin-right: 10px;
-        }
-		
-		.mobile-pic {
-            width: 12px;
-            height:17px;
-			margin-right: 10px;			
-        }
-		
-		.gmail-pic {
-            width: 18px;
-            height:12px;
-			margin-right: 10px;
-        }
-		
-		.linkedin-pic {
-            width: 16px;
-            height:16px;
-			margin-right: 10px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9em;
+            margin: 4px 0;
         }
 
+        .education-date {
+            font-size: 0.85em;
+            color: var(--text-light);
+        }
+
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
 
         /* --- Responsividade --- */
-        @media (max-width: 800px) {
-            .container {
+        @media (max-width: 1024px) {
+            .wrapper {
                 grid-template-columns: 1fr;
-                margin: 0;
             }
-            .sidebar, .main-content {
-                padding: 25px;
+
+            .sidebar {
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 30px;
             }
-            .main-header h1 {
+
+            .sidebar-content {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .profile-section {
+                flex: 1 1 100%;
+            }
+
+            .contact-section,
+            .skills-section,
+            .languages-section {
+                flex: 1 1 calc(50% - 15px);
+            }
+
+            .main-content {
+                padding: 40px 30px;
+            }
+
+            .header h1 {
                 font-size: 2.2em;
-            }
-            .main-header h2 {
-                font-size: 1.3em;
             }
         }
 
+        @media (max-width: 768px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                padding: 20px;
+            }
+
+            .sidebar-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .contact-section,
+            .skills-section,
+            .languages-section {
+                flex: 1 1 100%;
+            }
+
+            .main-content {
+                padding: 25px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header .subtitle {
+                font-size: 1em;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .experience-date {
+                white-space: normal;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+            }
+        }
+
+        @media print {
+            body {
+                background: var(--dark-bg);
+            }
+
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="wrapper">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <img src="img/profile.jpeg" alt="Foto de Marcio Dias Duarte" class="profile-pic">
-            
-            <div class="contact-info">
-                <h3>Contato</h3>
-                <ul>
-                    <li><i class="fa fa-map"></i></i>Curitiba, Paraná, Brasil </li>
-                    <li><i class="fa fa-phone"></i></i>(41) 99896-5408</li>
-                    <li><i class="fa fa-envelope"></i><a href="mailto:marciodiasduarte@gmail.com">marciodiasduarte@gmail.com</a></li>
-                    <li><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/marcio-dias-duarte" target="_blank">LinkedIn</a>
-					</li>
-                </ul>
-            </div>
-
-            <div class="skills">
-                <h3>Principais Competências</h3>
-                <ul class="skills-list">
-                    <li>Microsserviços </li>
-                    <li>Metodologias Agile</li>
-                    <li>Oracle</li>
-                    <li>Java</li>
-                    <li>Spring Boot</li>
-                    <li>JSF</li>
-                    <li>Hibernate</li>
-                    <li>React.js</li>
-                    <li>PHP</li>
-                    <li>SQL</li>
-                </ul>
-            </div>
-            
-            <div class="education">
-                <h3 class="section-title">Formação</h3>
-                <div class="education-item">
-                    <p class="education-degree">Especialização em Engenharia de Software </p>
-                    <p class="education-institution">Pontifícia Universidade Católica do Paraná </p>
-                    <p class="education-date">2014 - 2016 </p>
+            <div class="sidebar-content">
+                <!-- Profile -->
+                <div class="profile-section">
+                    <img src="img/profile.png" alt="Marcio Dias Duarte" class="profile-pic">
+                    <div class="profile-name">Marcio Dias Duarte</div>
+                    <div class="profile-title">Analista de Sistemas Sênior</div>
                 </div>
-                <div class="education-item">
-                    <p class="education-degree">Sistemas de Informação </p>
-                    <p class="education-institution">Faculdade Spei ]</p>
-                    <p class="education-date">2008 - 2011 </p>
-                </div>
-            </div>
 
-            <div class="languages">
-                <h3>Idiomas</h3>
-                <ul class="languages-list">
-                    <li>Português <span>(Nativo ou Bilíngue)</span> </li>
-                    <li>Inglês <span>(Profissional Limitado)</span> </li>
-                </ul>
+                <!-- Contact -->
+                <div class="contact-section">
+                    <h3>Contato</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <span>Curitiba, Paraná, Brasil</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <span>(41) 99896-5408</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            <a href="mailto:marciodiasduarte@gmail.com">marciodiasduarte@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-linkedin"></i>
+                            <a href="https://www.linkedin.com/in/marcio-dias-duarte" target="_blank">linkedin.com/in/marcio-dias-duarte</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skills -->
+                <div class="skills-section">
+                    <h3>Competências</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">JSF</span>
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Oracle DB</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">Microsserviços</span>
+                        <span class="skill-tag">Hibernate</span>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="languages-section">
+                    <h3>Idiomas</h3>
+                    <ul class="languages-list">
+                        <li class="language-item">
+                            <span class="language-name">Português</span>
+                            <span class="language-level">Nativo</span>
+                        </li>
+                        <li class="language-item">
+                            <span class="language-name">Inglês</span>
+                            <span class="language-level">Profissional Limitado</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="main-header">
-                <h1>Marcio Dias Duarte </h1>
-                <h2>Analista de Sistemas Sênior<br> com experiência em Java, JSF, e Oracle. </h2>
-            </header>
+            <!-- Header -->
+            <div class="header">
+                <h1>Marcio Dias Duarte</h1>
+                <div class="subtitle">Analista de Sistemas Sênior</div>
+                <p>Especialista em desenvolvimento de soluções robustas e escaláveis com Java, Spring Boot e Oracle. Mais de 13 anos de experiência em sistemas ERP, gerenciamento de tráfego e telecomunicações. Liderança em análise, planejamento e implementação de projetos complexos utilizando metodologias ágeis. Apaixonado por resolver desafios complexos e trazer inovações que maximizam o desempenho e a funcionalidade, sempre almejando a excelência nos resultados entregues ao setor de tecnologia para infraestrutura urbana.</p>
+            </div>
 
-            <section class="section">
-                <h2 class="section-title">Resumo Profissional</h2>
-                <p>Com mais de uma década de experiência, sou especializado em desenvolver soluções tecnológicas robustas e escaláveis, atuando como Analista de Sistemas Sênior na Dataprom. No meu papel atual, auxílio nas fases de análise, planejamento e implementação em projetos de gerenciamento de tráfego, aprimorando a padronização visual e a eficiência dos sistemas. Nossa equipe utiliza metodologias ágeis para entregar software de alta qualidade, com um foco consistente em Java e Spring Boot. Sou apaixonado por resolver desafios complexos e trazer inovações que maximizam o desempenho e a funcionalidade. </p>
-            </section>
-
+            <!-- Experience -->
             <section class="section">
                 <h2 class="section-title">Experiência Profissional</h2>
 
-                <article class="job">
-                    <h3 class="job-title">Analista de Sistemas Sênior - <span class="job-company">Dataprom</span></h3>
-                    <p class="job-date">fevereiro de 2021 - Presente (4 anos 7 meses) | Curitiba, Paraná, Brasil </p>
-                    <ul>
-                        <li>Foco em Java no backend e JSP no frontend para desenvolver e manter o sistema de gerenciamento de manutenção de semáforos. </li>
-                        <li>Responsável por todas as etapas do ciclo de desenvolvimento: análise, planejamento, implantação e testes. </li>
-                        <li>Apoio no levantamento de requisitos e elaboração de propostas técnicas. </li>
-                        <li>Contribuição na padronização visual do sistema e gerenciamento do processo de build com Maven. </li>
-                        <li>Tecnologias: JavaScript, JQuery, Hibernate, Vraptor, Bootstrap, GIT e Oracle DB. ]</li>
-                    </ul>
-                </article>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Analista de Sistemas Sênior</div>
+                            <div class="experience-company">Dataprom Equipamentos e Serviços de Informática</div>
+                        </div>
+                        <div class="experience-date">Fev 2021 – Presente</div>
+                    </div>
+                    <div class="experience-location">Curitiba, PR, Brasil • 5 anos e 3 meses</div>
+                    <div class="experience-description">
+                        Atuo como Analista de Sistemas Sênior, com foco em Java no backend e JSP no frontend, desenvolvendo e mantendo o sistema de gerenciamento de manutenção de semáforos. Responsável por todas as etapas do ciclo de desenvolvimento, desde análise, planejamento, implantação até testes, além de apoiar no levantamento de requisitos e elaboração de propostas técnicas. Contribuí para a padronização visual do sistema e gerencio o processo de build com Maven. Utilizo tecnologias como JavaScript, JQuery, Hibernate, Vraptor e Bootstrap, com GIT para controle de versão e Oracle para banco de dados.
+                    </div>
+                    <div class="experience-tags">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">JSP</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">jQuery</span>
+                        <span class="tech-tag">Hibernate</span>
+                        <span class="tech-tag">Vraptor</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Maven</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
+                </div>
 
-                <article class="job">
-                    <h3 class="job-title">Analista de Sistemas Sênior - <span class="job-company">OTG Open Technologies Group</span> </h3>
-                    <p class="job-date">fevereiro de 2020 - fevereiro de 2021 (1 ano 1 mês) | Curitiba e Região, Brasil </p>
-                     <ul>
-                        <li>Alocado na Telefônica/Vivo, desenvolvendo e mantendo módulos para a equipe de engenharia da URA (backend em Java, frontend em JSF). </li>
-                        <li>Responsável pela análise, correção de erros, implementação de melhorias e gerenciamento de build via Maven.</li>
-                        <li>Atuação em todas as etapas de desenvolvimento, implantação e testes, além de auxílio no levantamento de requisitos. </li>
-                        <li>Tecnologias: Java, JavaScript, Ajax, JSF, Spring, Weblogic, Oracle e Git. </li>
-                    </ul>
-                </article>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Analista de Sistemas Sênior</div>
+                            <div class="experience-company">OTG Open Technologies Group</div>
+                        </div>
+                        <div class="experience-date">Fev 2020 – Fev 2021</div>
+                    </div>
+                    <div class="experience-location">Curitiba e Região, Brasil • 1 ano e 1 mês</div>
+                    <div class="experience-description">
+                        Atuei como Analista de Sistemas Sênior, alocado na Telefônica/Vivo, desenvolvendo e mantendo módulos para a equipe de engenharia da URA, com backend em Java e frontend em JSF. Minhas responsabilidades incluíam análise, correção de erros, e implementação de melhorias em software modularizado, além de gerenciamento do processo de build via Maven. Trabalhei em todas as etapas de desenvolvimento, implantação e testes, e auxiliei no levantamento de requisitos e planejamento técnico. Tecnologias utilizadas incluem Java, JavaScript, Ajax, JSF, Spring, Weblogic, Oracle, e controle de versão com Git.
+                    </div>
+                    <div class="experience-tags">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">JSF</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Ajax</span>
+                        <span class="tech-tag">Spring</span>
+                        <span class="tech-tag">WebLogic</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">Maven</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
+                </div>
 
-                <article class="job">
-                    <h3 class="job-title">Analista de Sistemas Sênior - <span class="job-company">Condor Super Center Ltda.</span> </h3>
-                    <p class="job-date">maio de 2015 - janeiro de 2020 (4 anos 9 meses) | Curitiba, Paraná </p>
-                    <ul>
-                        <li>Desenvolvimento de sistemas ERP com Java no backend e JSF no frontend. </li>
-                        <li>Participação na migração de JSF para React e no desenvolvimento de soluções modularizadas. </li>
-                        <li>Liderança em projetos como sistema de roteirização de entregas, portais de fornecedores (PHP/Laravel) e de estatísticas de vendas (Jasper). </li>
-                        <li>Tecnologias: PHP, React.js, Java, Spring, Hibernate, JBoss, Oracle, MySQL, PostgreSQL, ElasticSearch. </li>
-                    </ul>
-                </article>
-                
-                <article class="job">
-                    <h3 class="job-title">Programador de Sistemas Pleno - <span class="job-company">Clube Candeias</span> </h3>
-                    <p class="job-date">fevereiro de 2011 - abril de 2015 (4 anos 3 meses)</p>
-                     <ul>
-                        <li>Início como estagiário, com promoções para Programador Júnior e, depois, Pleno. </li>
-                        <li>Atuação com PHP no backend e participação na migração de PHP para Java. </li>
-                        <li>Trabalho em todas as fases do desenvolvimento, manutenção evolutiva, correção de erros e implementação de projetos. </li>
-                        <li>Tecnologias: PHP, JavaScript, Java, HTML, Ajax, JSF, Hibernate, JQuery, CVS, MySQL, PostgreSQL, SQL Server. </li>
-                    </ul>
-                </article>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Analista de Sistemas Sênior</div>
+                            <div class="experience-company">Condor Super Center Ltda.</div>
+                        </div>
+                        <div class="experience-date">Mai 2015 – Jan 2020</div>
+                    </div>
+                    <div class="experience-location">Curitiba, Paraná • 4 anos e 9 meses</div>
+                    <div class="experience-description">
+                        Como Analista de Sistemas Sênior, trabalhei no desenvolvimento de sistemas ERP com Java no backend e JSF no frontend, atuando em análise, desenvolvimento e manutenção evolutiva do produto. Participei da migração de JSF para React, além de planejar e desenvolver soluções modularizadas. Liderei projetos como a criação de um sistema de roteirização de entregas com algoritmos de k-médias, um projeto de comunicação de dados entre clientes e parceiros financeiros, um Portal de Fornecedores em PHP/Laravel e um Portal de Estatísticas de Vendas, com gráficos e relatórios em Jasper. Tecnologias: PHP, React.js, Java, Spring, Hibernate, JBoss, e bancos de dados (Oracle, MySQL, PostgreSQL, ElasticSearch).
+                    </div>
+                    <div class="experience-tags">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">JSF</span>
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">Spring</span>
+                        <span class="tech-tag">Hibernate</span>
+                        <span class="tech-tag">JBoss</span>
+                        <span class="tech-tag">Jasper</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">ElasticSearch</span>
+                    </div>
+                </div>
 
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Programador de Sistemas Pleno</div>
+                            <div class="experience-company">Clube Candeias</div>
+                        </div>
+                        <div class="experience-date">Fev 2011 – Abr 2015</div>
+                    </div>
+                    <div class="experience-location">Curitiba, Paraná • 4 anos e 3 meses</div>
+                    <div class="experience-description">
+                        Iniciei como estagiário, encarregado da manutenção de banco de dados. Fui promovido a Programador de Sistemas Júnior, atuando com PHP no backend e, posteriormente, a Programador Pleno, participando da migração de PHP para Java. Em todas as fases do desenvolvimento de software (planejamento, implantação e testes), trabalhei em manutenção evolutiva, correção de erros e implementação de projetos menores. Tecnologias: PHP, JavaScript, Java, HTML, Ajax, JSF, Hibernate, JQuery, CVS, MySQL, PostgreSQL, SQL Server.
+                    </div>
+                    <div class="experience-tags">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">Ajax</span>
+                        <span class="tech-tag">JSF</span>
+                        <span class="tech-tag">Hibernate</span>
+                        <span class="tech-tag">jQuery</span>
+                        <span class="tech-tag">CVS</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">SQL Server</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section">
+                <h2 class="section-title">Formação Acadêmica</h2>
+
+                <div class="education-item">
+                    <div class="education-degree">Especialização em Engenharia de Software</div>
+                    <div class="education-institution">Pontifícia Universidade Católica do Paraná</div>
+                    <div class="education-date">2014 – 2016</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-degree">Sistemas de Informação</div>
+                    <div class="education-institution">Faculdade Spei</div>
+                    <div class="education-date">2008 – 2011</div>
+                </div>
             </section>
         </main>
     </div>
